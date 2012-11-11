@@ -12,7 +12,12 @@ describe "Static pages" do
     it "should have the title 'Home'" do
       visit '/static_pages/home'
       page.should have_selector('title',
-                        :text => "Booksharing | Home")
+                        :text => "Booksharing")
+    end
+    
+    it "should not have a custom page title" do
+      visit '/static_pages/home'
+      page.should_not have_selector('title', :text => '| Home')
     end
   end
 
@@ -26,7 +31,12 @@ describe "Static pages" do
     it "should have the title 'Help'" do
       visit '/static_pages/help'
       page.should have_selector('title',
-                        :text => "Booksharing | Help")
+                        :text => "Booksharing")
+    end
+    
+    it "should not have a custom page title" do
+      visit '/static_pages/help'
+      page.should_not have_selector('title', :text => '| Help')
     end
   end
 
@@ -40,7 +50,12 @@ describe "Static pages" do
     it "should have the title 'About Us'" do
       visit '/static_pages/about'
       page.should have_selector('title',
-                    :text => "Booksharing | About Us")
+                        :text => "Booksharing")
+    end
+    
+    it "should not have a custom page title" do
+      visit '/static_pages/about'
+      page.should_not have_selector('title', :text => '| About Us')
     end
   end
 end
